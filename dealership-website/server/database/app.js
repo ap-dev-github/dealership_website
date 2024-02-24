@@ -62,7 +62,7 @@ app.get('/fetchDealers', async (req, res) => {
 //Express route to fetch dealers from particular state
 app.get('/fetchDealers/:state', async (req, res) => {
   try {
-    dealers = await Dealerships.find({ state: req.params.state })
+    const dealers = await Dealerships.find({ state: req.params.state })
     res.json(dealers);
   }
   catch (error) {
@@ -73,7 +73,7 @@ app.get('/fetchDealers/:state', async (req, res) => {
 //Express route to fetch dealer be id 
 app.get('/fetchDealer/:id', async (req, res) => {
   try {
-    const dealer = await Dealerships.findbyId(req.params.id);
+    const dealer = await Dealerships.find({id:req.params.id});
     if (!dealer) {
        return res.status(404).json({error:'dealer not found!'});
     }
