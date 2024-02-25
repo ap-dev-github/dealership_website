@@ -2,7 +2,7 @@
 import requests
 import os
 from dotenv import load_dotenv
-from .env import sentiment_analyzer_url,backend_url
+
 
 load_dotenv()
 
