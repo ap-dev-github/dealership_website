@@ -81,7 +81,8 @@ const PostReview = () => {
     });
     const retobj = await res.json();
     
-    let carmodelsarr = Array.from(retobj.CarModels)
+    // let carmodelsarr = Array.from(retobj.CarModels)
+    let carmodelsarr = retobj["CarModels"]
     setCarmodels(carmodelsarr)
   }
   useEffect(() => {
@@ -104,8 +105,8 @@ const PostReview = () => {
       <select name="cars" id="cars" onChange={(e) => setModel(e.target.value)}>
       <option value="" selected disabled hidden>Choose Car Make and Model</option>
       {carmodels.map(carmodel => (
-          <option value={carmodel.CarMake+" "+carmodel.CarModel}>{carmodel.CarMake} {carmodel.CarModel}</option>
-      ))}
+          <option value={carmodel["CarMake"]+" "+carmodel["CarModel"]}> {carmodel["CarMake"]} {carmodel["CarModel"]} </option>
+      )) }
       </select>        
       </div >
 
